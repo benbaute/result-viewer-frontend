@@ -93,10 +93,10 @@ The nx project is structured into several domain libraries, each responsible for
 
 # Resources
 
-| Resource Type               | Description                                                                   | Link                                                                  |
-|-----------------------------|-------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| Resource Type               | Description                                                                   | Link                                                                      |
+|-----------------------------|-------------------------------------------------------------------------------|---------------------------------------------------------------------------|
 | **Project Management**      | Kanban board tracking development progress and tasks                          | [Simra Project Board](https://github.com/users/KonsumGandalf/projects/11) |
-| **K6s**                     | Performance tests to check the capabilities of the application                | [Architecture Diagrams](k6s)                                          |
-| **Live Demonstration**      | Interactive dashboard showcasing real-time cycling safety analytics           | [Simra Dashboard](https://simra.codinggandalf.com)                    |
+| **K6s**                     | Performance tests to check the capabilities of the application                | [k6s](k6s)                                                                |
+| **Live Demonstration**      | Interactive dashboard showcasing real-time cycling safety analytics           | [Simra Dashboard](https://simra.codinggandalf.com)                        |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
