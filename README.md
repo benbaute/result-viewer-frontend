@@ -9,13 +9,17 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#deploying">Installation</a></li>
         <li><a href="#development">Development</a></li>
-        <li><a href="#testing">Testing</a></li>
       </ul>
     </li>
-    <li><a href="#project-structure">Project Structure</a></li>
-    <li><a href="#architecture-overview">Architecture Overview</a></li>
+    <li>
+      <a href="#project-structure">Project Structure</a>
+      <ul>
+        <li><a href="#apps">Apps</a></li>
+        <li><a href="#domains">Domains</a></li>
+      </ul>
+    </li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#resources">Resources</a></li>
     <li><a href="#additional-tools">Additional Tools</a></li>
@@ -65,13 +69,14 @@ To set up the development environment, ensure you have the following installed:
 
 2. Access the web application at `http://localhost:4200`.
 
-# Apps
+# Project Structure
+## Apps
 
 | Name       | Path       | Description                                         |
 |------------|------------|-----------------------------------------------------|
 | `frontend` | [src](src) | The base entrance point of the angular application. |
 
-# 
+## Domains
 
 The nx project is structured into several domain libraries, each responsible for specific functionalities.
 
