@@ -86,10 +86,10 @@ The nx project is structured into several domain libraries, each responsible for
 
 # Contacts
 
-| Role                   | Name               | Contact                                                                                     |
-|------------------------|--------------------|---------------------------------------------------------------------------------------------|
-| **Project Supervisor** | David Bermbach     | [TU Berlin Profile](https://www.tu.berlin/3s/ueber-uns/team/prof-dr-ing-david-bermbach)      |
-| **Developer**          | David Schmidt      | [Portfolio](https://david.codinggandalf.com) • [LinkedIn](https://www.linkedin.com/in/david-schmidt-berlin/) |
+| Role                   | Name               | Contact                                                                                                    |
+|------------------------|--------------------|------------------------------------------------------------------------------------------------------------|
+| **Project Supervisor** | David Bermbach     | [TU Berlin Profile](https://www.tu.berlin/3s/ueber-uns/team/prof-dr-ing-david-bermbach)                    |
+| **Developer**          | David Schmidt      | [Portfolio](https://david.codinggandalf.com) • [Github](https://github.com/KonsumGandalf) |
 
 # Resources
 
