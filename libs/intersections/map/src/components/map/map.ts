@@ -45,11 +45,12 @@ import {
 } from '@simra/intersections-common';
 import { MapLegendComponent } from '../map-legend/map-legend';
 import { MapSettingsComponent } from '../map-settings/map-settings';
+import { FullscreenDirective } from '@simra/common-components'
 
 
 @Component({
 	selector: 'intersection-map',
-	imports: [MapPage, TableModule, MapLegendComponent, MapSettingsComponent, ProgressSpinner],
+	imports: [MapPage, TableModule, MapLegendComponent, MapSettingsComponent, ProgressSpinner, FullscreenDirective],
 	templateUrl: './map.html',
 	styleUrl: './map.scss',
 	encapsulation: ViewEncapsulation.None,

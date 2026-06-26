@@ -3,7 +3,7 @@ import { Component, ElementRef, input, signal, computed, viewChild, model, injec
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { ChartModule } from 'primeng/chart';
-import { PopoverModule } from 'primeng/popover';
+import { Drawer } from 'primeng/drawer';
 import { merge } from 'lodash';
 
 import {
@@ -14,12 +14,13 @@ import {
     TimeCategory,
     ChartComplete
 } from '../../lib/common/interfaces';
-import { SettingsComponent } from '../settings/settings';
+import { SettingsDrawerComponent } from '../settings/settings-drawer';
 import {
 	TRAFFIC_TIMES_TO_TRANSLATION,
 	WEEK_DAYS_TO_TRANSLATION, 
 	YEAR_TO_TRANSLATION
 } from '@simra/common-components';
+import { FullscreenDirective } from '@simra/common-components';
 
 import html2canvas from 'html2canvas';
 import { TranslateService } from '@ngx-translate/core';
@@ -35,14 +36,18 @@ const TimeCatergoryLabelTranslations: Record<TimeCategory, any> = {
 @Component({
     selector: 'intersection-chart-wrapper',
     standalone: true,
-    imports: [FormsModule, ButtonModule, ChartModule, PopoverModule, SettingsComponent],
-    templateUrl: './chart-wrapper.html'
+    imports: [FormsModule, ButtonModule, ChartModule, SettingsDrawerComponent, FullscreenDirective],
+    templateUrl: './chart-wrapper.html',
+    styleUrl: './chart-wrapper.scss'
 })
 export class ChartWrapperComponent<T> {
     chart = input.required<ChartComplete>();
     settings = input.required<SettingGroup[]>();
     chartFilter = input.required<ChartFilter<T>>();
     downloadFileName = input.required<string>();
+
+    sidebarVisible = signal<boolean>(false);
+    screenshotMode = signal<boolean>(false);
 
     downloadFileNameWithFilter = computed<string>(() => {
         const baseName = this.downloadFileName();
@@ -91,20 +96,18 @@ export class ChartWrapperComponent<T> {
         return newSettings;
     })
 
-    isSettingsVisible = signal(false);
-    setSettingVisibility(visible: boolean) {
-        this.isSettingsVisible.set(visible);
-    }
-
+    fs = viewChild(FullscreenDirective);
     protected scaledChartOptions = computed(() => {
         const baseOptions = this.chart().options;
+        const isFullscreen = this.fs()?.fullscreenMode();
         
-        if (!this.isExporting()) {
+        if (!this.isExporting() && !isFullscreen) {
             return baseOptions;
         }
 
         const fontSize = 42; 
         const exportOverrides: ChartOptions = {
+            maintainAspectRatio : false,
             plugins: {
                 legend: {
                     labels: { font: { size: fontSize } }

@@ -1,13 +1,14 @@
 
-import { Component, signal, model, ViewEncapsulation, effect, input, inject, HostListener } from '@angular/core';
+import { Component, signal, model, ViewEncapsulation, effect, input, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Button } from 'primeng/button';
 import { Card } from 'primeng/card';
 import { Popover } from 'primeng/popover';
+import { Divider } from 'primeng/divider';
 import { Select, SelectLazyLoadEvent, SelectFilterEvent } from 'primeng/select';
 import {
 	SettingGroup,
-	SettingsComponent,
+	SettingsDrawerComponent,
 	IdListRequest,
 	PagedIds
 } from '@simra/intersections-common';
@@ -16,26 +17,17 @@ import { IntersectionsRequestService } from '@simra/intersections-domain';
 
 @Component({
 	selector: 'intersection-map-settings',
-	imports: [FormsModule, Button, Card, Popover, Select, SettingsComponent],
+	imports: [FormsModule, Button, Card, Divider, Popover, Select, SettingsDrawerComponent],
 	templateUrl: './map-settings.html',
 	styleUrl: './map-settings.scss',
 	encapsulation: ViewEncapsulation.None
 })
 export class MapSettingsComponent {
 	screenshotMode = model.required<boolean>();
+	fullscreenMode = model.required<boolean>();
 
-	@HostListener('window:keydown.escape')
-    handleKeyDown() {
-        if (this.screenshotMode()) {
-            this.screenshotMode.set(false);
-        }
-    }
-
+	sidebarVisible = signal<boolean>(false);
 	settings = input.required<SettingGroup[]>();
-	isSettingsVisible = signal(false);
-    setSettingVisibility(visible: boolean) {
-        this.isSettingsVisible.set(visible);
-    }
 
 	extendedSettings = input.required<boolean>();
 	selectedRideId = model<number | null>();

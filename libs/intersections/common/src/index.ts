@@ -1,4 +1,5 @@
 export { SettingsComponent } from './components/settings/settings';
+export { SettingsDrawerComponent } from './components/settings/settings-drawer';
 export { DateFilterPrecomputedComponent } from './components/date-filter-precomputed/date-filter-precomputed';
 export { DateFilterComponent } from './components/date-filter/date-filter';
 export { IntersectionListContentComponent } from './components/list/list-content/list-content';

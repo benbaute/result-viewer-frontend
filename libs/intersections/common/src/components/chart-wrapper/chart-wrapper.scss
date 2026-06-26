@@ -1,0 +1,16 @@
+.fullscreen-mode {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    background-color: #ffffff;
+
+    .screenshotContainer {
+        height: 100% !important;
+    }
+
+    p-chart {
+        canvas {
+            height: 100% !important;
+        }
+    }
+}

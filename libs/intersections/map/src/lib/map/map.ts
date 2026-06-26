@@ -62,6 +62,7 @@ import {
 } from '@simra/common-components';
 import { APP_CONFIG, ETrafficTimes, EWeekDays, EYear } from '@simra/common-models';
 import { TranslateService } from '@ngx-translate/core';
+import { FullscreenDirective } from '@simra/common-components';
 
 const TimeCatergoryLabelTranslations: Record<TimeCategory, any> = {
   trafficTime: TRAFFIC_TIMES_TO_TRANSLATION,
@@ -72,7 +73,7 @@ const TimeCatergoryLabelTranslations: Record<TimeCategory, any> = {
 
 @Component({
 	selector: 'intersection-map',
-	imports: [MapPage, FormsModule, CheckboxModule, SelectModule, MapSettingsComponent, MapLegendComponent],
+	imports: [MapPage, FormsModule, CheckboxModule, SelectModule, MapSettingsComponent, MapLegendComponent, FullscreenDirective],
 	templateUrl: './map.html',
   styleUrl: './map.scss',
   encapsulation: ViewEncapsulation.None,
