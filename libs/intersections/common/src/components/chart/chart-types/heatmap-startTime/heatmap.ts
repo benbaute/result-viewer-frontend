@@ -33,6 +33,8 @@ export class HeatmapStartTimeChartComponent<T> {
     protected maxViewY = signal<number | null>(null);
     protected maxViewCount = signal<number | null>(null);
 
+    protected normalize = signal<boolean>(false);
+
     protected weeks = signal<number>(6);
 
 
@@ -54,6 +56,7 @@ export class HeatmapStartTimeChartComponent<T> {
                 { label: 'Minimum Value Y', props: { type: "number", value: this.minViewY }},
                 { label: 'Maximum Value Y', props: { type: "number", value: this.maxViewY }},
                 { label: 'Maximum Count', props: { type: "number", value: this.maxViewCount, min:2 }},
+                { label: 'Normalize', props: { type: "boolean", value: this.normalize }},
             ]
         }
     ]);
@@ -84,7 +87,8 @@ export class HeatmapStartTimeChartComponent<T> {
             undefined,
             this.minViewY() ?? undefined,
             this.maxViewY() ?? undefined,
-            this.maxViewCount() ?? undefined
+            this.maxViewCount() ?? undefined,
+            this.normalize()
 		)
     });
 
