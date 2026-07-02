@@ -26,7 +26,8 @@ export class HeatmapStartTimeChartComponent<T> {
     label = input.required<string>();
     chartFilter = input.required<ChartFilter<T>>();
 
-    
+    isLargeMode = signal<boolean>(false);
+
     protected yBucketSize = signal<number>(10);
     protected yOffset = signal<number>(5);
     protected minViewY = signal<number | null>(null);
@@ -69,7 +70,6 @@ export class HeatmapStartTimeChartComponent<T> {
             options: d.options
         }
     });
-    protected isExporting = signal<boolean>(false); 
 
     protected chartData = computed(() => {
         return createHeatmapBinning(

@@ -1,9 +1,8 @@
-import { Component, ElementRef, input, signal, computed, viewChild, model, inject } from '@angular/core';
+import { Component, ElementRef, input, signal, computed, viewChild, model, inject, output, effect } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { ChartModule } from 'primeng/chart';
-import { Drawer } from 'primeng/drawer';
 import { merge } from 'lodash';
 
 import {
@@ -48,6 +47,7 @@ export class ChartWrapperComponent<T> {
 
     sidebarVisible = signal<boolean>(false);
     screenshotMode = signal<boolean>(false);
+    isExporting = signal<boolean>(false); 
 
     downloadFileNameWithFilter = computed<string>(() => {
         const baseName = this.downloadFileName();
@@ -127,7 +127,15 @@ export class ChartWrapperComponent<T> {
         return merge({}, baseOptions, exportOverrides);
     });
 
-    public isExporting = model.required<boolean>(); 
+    isLargeMode = model.required<boolean>();
+
+    constructor() {
+        effect(() => {
+            this.isLargeMode.set(this.fs()?.fullscreenMode() || this.isExporting());
+        });
+    }
+
+    
     private readonly screenshotContainer = viewChild<ElementRef<HTMLDivElement>>('screenshotContainer');
     protected async downloadAsImage() {
         this.isExporting.set(true);
