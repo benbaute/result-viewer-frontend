@@ -1,4 +1,4 @@
-import { Component, ElementRef, input, signal, computed, viewChild, model, inject, output, effect } from '@angular/core';
+import { Component, ElementRef, input, signal, computed, viewChild, model, inject, effect } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';

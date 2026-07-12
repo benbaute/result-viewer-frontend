@@ -1,4 +1,4 @@
-import { Component, input, HostListener, signal, model, computed, effect} from '@angular/core';
+import { Component, input, HostListener, signal, model, effect} from '@angular/core';
 import { Drawer } from 'primeng/drawer';
 import { Button } from 'primeng/button';
 import { SettingsComponent } from './settings'

@@ -9,6 +9,8 @@ export { ChartWrapperComponent } from './components/chart-wrapper/chart-wrapper'
 export { IntersectionChartComponent } from './components/chart/chart';
 export { IntersectionChartMetricComponent } from './components/chart-metric/chart';
 
+export { RouteParamUtilityService } from './lib/common/query-param';
+
 export * from './lib/common/interfaces';
 export * from './lib/common/config-helper';
 export * from './lib/common/map-helper';

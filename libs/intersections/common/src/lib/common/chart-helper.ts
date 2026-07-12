@@ -414,12 +414,12 @@ export function createHeatmapBinning(
     if (normalize) {
         const totals: Record<string, number> = {};
         for (const key in grid) {
-            const [binX, binY] = key.split('-');
+            const [binX, ] = key.split('-');
             totals[binX] = (totals[binX] || 0) + grid[key].v;
         }
 
         for (const key in grid) {
-            const [binX, binY] = key.split('-');
+            const [binX, ] = key.split('-');
             const segmentTotal = totals[binX] || 1;
             grid[key].v = 100 * grid[key].v / segmentTotal;
         }
